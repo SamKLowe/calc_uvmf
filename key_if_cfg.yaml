@@ -1,0 +1,15 @@
+uvmf:
+  interfaces:
+    "key" :
+      clock: "clk"
+      reset: "rst"
+      reset_assertion_level: "True"
+      hdl_typedefs:
+        - { name: "key_value_t", type: "enum { ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,PLUS,MINUS,MULTIPLY,DIVIDE,ENTER,CLEAR,NONE,RESET }"}
+        - { name: "button_t", type: "struct {key_value_t key; bit [3:0] row; bit [3:0] col;}"}
+      ports:
+        - { name: "key_col"    , width: "4", dir: "output"}
+        - { name: "key_row"    , width: "4", dir: "input"}
+      transaction_vars:
+        - { name: "data"        , type: "bit [7:0]", isrand: "True", iscompare: "True" }
+        - { name: "button" , type: "button_t", isrand: "True", iscompare: "True" }

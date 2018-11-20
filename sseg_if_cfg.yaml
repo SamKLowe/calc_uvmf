@@ -1,0 +1,11 @@
+uvmf:
+  interfaces:
+    "sseg" :
+      clock: "clk"
+      reset: "rst"
+      reset_assertion_level: "True"
+      ports:
+        - { name: "sseg_a"    , width: "7", dir: "output" }
+        - { name: "sseg_c"    , width: "10", dir: "output" }
+      transaction_vars:
+        - { name: "value"        , type: "longint", isrand: "True", iscompare: "True" }

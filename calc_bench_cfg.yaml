@@ -1,0 +1,17 @@
+uvmf:
+  benches:
+    "calc" :
+      ## Specify the top-level block
+      top_env: "calc"
+      clock_half_period: "6ns"
+      clock_phase_offset: "21ns"
+      reset_assertion_level: "True"
+      reset_duration: "250ns"
+      ## This is optional, default for all BFMs is ACTIVE. The top-level environment
+      ## will dictate which BFMs are required as well as the order in which they are
+      ## used (order is important here)
+      active_passive:
+      - { bfm_name: "key_in", value: "ACTIVE" }
+      - { bfm_name: "sseg_out", value: "PASSIVE" }
+      #   - { bfm_name: "secure_data_plane_in", value: "ACTIVE" }
+      #   - { bfm_name: "secure_data_plane_out", value: "ACTIVE" }
